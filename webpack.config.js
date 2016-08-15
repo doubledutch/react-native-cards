@@ -31,14 +31,5 @@ module.exports = {
       "dd-nativemodules": "DD.nativemodules",
       "dd-feed": "DD.feed",
       "react-dom": "ReactDOM"
-  },
-  "resolve": {
-    "root": path.resolve(__dirname),
-    "alias": {
-      "dd-nativemodules" : "src/components/nativemodules",
-      "dd-ddview" : "src/components/ddview",
-      "dd-dimensions" : "src/components/dimensions"
-    },
-    "extensions": ['.jsx']
   }
 }
