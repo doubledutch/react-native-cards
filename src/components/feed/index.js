@@ -2,14 +2,14 @@
 
 var ReactNative = require('react-native');
 var React = require('react');
-var DD = require('./NativeModules').DDBindings
-var DDView = require('./ddview');
-var Data = require('./feed.data.js');
+var DD = require('dd-nativemodules').DDBindings
+import DDView from 'dd-ddview'
+import Data from './feed.data.js'
 import PeopleRecommendations1 from './feed.recommended-people-1.js';
 import ChannelRecommendations1 from './feed.recommended-channels-1.js';
 import CheckinCard from './feed.checkin.js';
 import FeedCard from './feed.card.js';
-import Dimensions from './Dimensions'
+import Dimensions from 'dd-dimensions'
 
 var {
     Text,

@@ -9,11 +9,11 @@ import {
 
 var React = require('react');
 var ReactNative = require('react-native');
-import Dimensions from './Dimensions'
+import Dimensions from 'dd-dimensions'
 
 const CARD_PREVIEW_WIDTH = 60
 const CARD_MARGIN = 5;
-const CARD_WIDTH = Dimensions.get('window').width - (CARD_MARGIN) * 2 - CARD_PREVIEW_WIDTH;
+const GET_CARD_WIDTH = () => { return Dimensions.get('window').width - (CARD_MARGIN) * 2 - CARD_PREVIEW_WIDTH }
 
 class FeedCardWrapper extends React.Component {
     constructor(props) {
@@ -22,7 +22,7 @@ class FeedCardWrapper extends React.Component {
 
     render() {
         var child = this.props.children
-        
+
         return (
           <View style={styles.wrapper}>
             <View style={styles.header}>
@@ -88,4 +88,4 @@ var styles = ReactNative.StyleSheet.create({
     },
 });
 
-export { FeedCardWrapper, CARD_PREVIEW_WIDTH, CARD_MARGIN, CARD_WIDTH };
+export { FeedCardWrapper, CARD_PREVIEW_WIDTH, CARD_MARGIN, GET_CARD_WIDTH };

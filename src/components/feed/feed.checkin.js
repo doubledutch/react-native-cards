@@ -19,7 +19,7 @@ var {
     ScrollView
 } = ReactNative;
 
-import { FeedCardWrapper, CARD_PREVIEW_WIDTH, CARD_MARGIN, CARD_WIDTH } from './feed.cardwrapper.js'
+import { FeedCardWrapper, CARD_PREVIEW_WIDTH, CARD_MARGIN, GET_CARD_WIDTH } from './feed.cardwrapper.js'
 import FeedCard from './feed.card.js'
 
 export default class CheckinsCard extends FeedCard {
@@ -31,7 +31,7 @@ export default class CheckinsCard extends FeedCard {
               automaticallyAdjustInsets={false}
               decelerationRate={0}
               snapToAlignment='start'
-              snapToInterval={CARD_WIDTH + CARD_MARGIN*1}
+              snapToInterval={GET_CARD_WIDTH() + CARD_MARGIN*1}
               horizontal={ true } style={{ flex: 1 }}
               contentContainerStyle={styles.content}>
               { this.props.data.map((d) => {
@@ -53,7 +53,7 @@ class CheckinCard extends FeedCard {
         var headerStyle = { height: 50 }
         
         if (image) {
-          headerStyle.marginBottom = CARD_WIDTH
+          headerStyle.marginBottom = GET_CARD_WIDTH()
         }
         
         var comments = []
@@ -73,7 +73,7 @@ class CheckinCard extends FeedCard {
         var commentBar = data.Comments.length ? <CommentBar comments={comments} /> : null
 
         return (
-          <View style={{ width: CARD_WIDTH }}>
+          <View style={{ width: GET_CARD_WIDTH() }}>
             {image}
             <View style={[styles.header, headerStyle]}>
               <Image style={styles.headerImage} source={{uri: data.Source.ImageUrl}} />
@@ -153,13 +153,13 @@ var styles = ReactNative.StyleSheet.create({
     },
     commentText: { 
       //numberOfLines: 2,
-      width: CARD_WIDTH,
+      width: GET_CARD_WIDTH(),
       fontSize: 13,
       lineHeight: 16
     },
     commentHasMore: { 
       //numberOfLines: 2,
-      width: CARD_WIDTH,
+      width: GET_CARD_WIDTH(),
       fontSize: 13,
       marginLeft: 5,
       paddingBottom: 7,
@@ -179,7 +179,7 @@ var styles = ReactNative.StyleSheet.create({
       marginTop: 5,
     },
     commentBar : {
-      width: CARD_WIDTH,
+      width: GET_CARD_WIDTH(),
       flexDirection: 'row',
       //minHeight: 30,
       marginTop: -2,
@@ -232,8 +232,8 @@ var styles = ReactNative.StyleSheet.create({
     },
     image : {
       marginTop: 2,
-      width: CARD_WIDTH,
-      height: CARD_WIDTH,
+      width: GET_CARD_WIDTH(),
+      height: GET_CARD_WIDTH(),
       resizeMode: 'cover',
       position: 'absolute',
       top: 0,
@@ -266,7 +266,7 @@ var styles = ReactNative.StyleSheet.create({
       flex: 1,
     },
     wrapper :{
-      width: CARD_WIDTH,
+      width: GET_CARD_WIDTH(),
       marginLeft: 27,
       paddingTop: 1,
       flex: 1,

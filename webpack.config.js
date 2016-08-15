@@ -1,42 +1,35 @@
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 var queryObject = {presets: [require.resolve('babel-preset-es2015'), require.resolve('babel-preset-react')]};
 var query = require('querystring').stringify(queryObject);
 
-var minimize = new webpack.optimize.UglifyJsPlugin({
-    compress: {
-        warnings: false
-    }
-})
+const DIST_DIRECTORY = './dist/'
 
 module.exports = {
-  plugins: [minimize],
   entry: {
-    main: './index.web.js',
+    'ddview': DIST_DIRECTORY + 'components/ddview',
+    'dimensions': DIST_DIRECTORY + 'components/dimensions',
+    'feed': DIST_DIRECTORY + 'components/feed',
+    'nativemodules': DIST_DIRECTORY + 'components/nativemodules',
+  },
+  output: {
+    filename: 'components/[name]/dd-[name].min.js',
+    path: DIST_DIRECTORY,
+    libraryTarget: "var",
+    library: ["DD", "[name]"],
   },
   module: {
-    loaders: [
-      {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        loaders: ['babel?' + query]
-//         query: {
-//           presets: ['es2015', 'react'],
-//         },
-      },
-    ],
   },
-  resolve: {
-    alias: {
-      //'react-native': 'react-native-web',
-//       'react-native' : './react-native-web-stub.js',
-//       'react' : './react-stub.js',
-//       'react-dom' : './react-dom-stub.js'
-    },
-  },
+  plugins: [
+  ],
   externals: {
       // Use external version of React
       "react-native": "ReactNative",
       "react": "React",
+      "dd-ddview": "DD.ddview",
+      "dd-dimensions": "DD.dimensions",
+      "dd-nativemodules": "DD.nativemodules",
+      "dd-feed": "DD.feed",
       "react-dom": "ReactDOM"
   },
-};
+}
