@@ -1,0 +1,13 @@
+{
+  "name": "dd-ddview",
+  "description": "DoubleDutch Feed for React Native",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-native-web": "0.0.41",
+    "dd-nativemodules": "file:../nativemodules"
+  }
+}
