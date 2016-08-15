@@ -5,9 +5,6 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
-    "react-native-web": "0.0.41",
     "dd-nativemodules": "file:../nativemodules"
   }
 }

@@ -3,7 +3,6 @@
   "description": "Activity Card Builder for React Native",
   "version": "0.0.1",
   "private": true,
-  "main": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -41,5 +40,10 @@
       "es2015",
       "react"
     ]
+  },
+  "browser": {
+    "dd-nativemodules" : "src/components/nativemodules",
+    "dd-ddview" : "src/components/ddview",
+    "dd-dimensions" : "src/components/dimensions"
   }
 }

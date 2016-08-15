@@ -9,6 +9,7 @@ import PeopleRecommendations1 from './feed.recommended-people-1.js';
 import ChannelRecommendations1 from './feed.recommended-channels-1.js';
 import CheckinCard from './feed.checkin.js';
 import FeedCard from './feed.card.js';
+import { FeedCardWrapper } from './feed.cardwrapper.js';
 import Dimensions from 'dd-dimensions'
 
 var {
@@ -38,8 +39,14 @@ class Feed extends React.Component {
       if (!this.isFetching) {
         this.isFetching = true
 
-        // alert(JSON.stringify(DD.currentUser))
-        // alert(JSON.stringify(DD.currentEvent))
+        if (this.props.data) {
+          this.setState({
+            feed: this.props.data,
+            dataSource : this.getDataSource(this.props.data)
+          })
+          return
+        }
+
         this.fetchFeed().then((feed) => {
           this.isFetching = false
 
@@ -137,9 +144,16 @@ class Feed extends React.Component {
         case 'checkins' :
           card = <CheckinCard data={act.data} />
           break;
-        default :
-          card = <FeedCard data={act.data} />
-          break;
+      }
+
+      if (!card && this.props.templates) {
+        if (this.props.templates[act.template]) {
+          card = this.props.templates[act.template](act.data)
+        }
+      }
+
+      if (!card) {
+        card = <FeedCard data={act.data} />
       }
 
         return (
@@ -235,4 +249,4 @@ var styles = ReactNative.StyleSheet.create({
     }
 });
 
-export default Feed;
+export { Feed as default, FeedCard, FeedCardWrapper };

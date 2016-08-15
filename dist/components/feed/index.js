@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.FeedCardWrapper = exports.FeedCard = exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -29,6 +30,8 @@ var _feedCheckin2 = _interopRequireDefault(_feedCheckin);
 var _feedCard = require('./feed.card.js');
 
 var _feedCard2 = _interopRequireDefault(_feedCard);
+
+var _feedCardwrapper = require('./feed.cardwrapper.js');
 
 var _ddDimensions = require('dd-dimensions');
 
@@ -80,8 +83,14 @@ var Feed = function (_React$Component) {
       if (!this.isFetching) {
         this.isFetching = true;
 
-        // alert(JSON.stringify(DD.currentUser))
-        // alert(JSON.stringify(DD.currentEvent))
+        if (this.props.data) {
+          this.setState({
+            feed: this.props.data,
+            dataSource: this.getDataSource(this.props.data)
+          });
+          return;
+        }
+
         this.fetchFeed().then(function (feed) {
           _this2.isFetching = false;
 
@@ -189,9 +198,16 @@ var Feed = function (_React$Component) {
         case 'checkins':
           card = React.createElement(_feedCheckin2.default, { data: act.data });
           break;
-        default:
-          card = React.createElement(_feedCard2.default, { data: act.data });
-          break;
+      }
+
+      if (!card && this.props.templates) {
+        if (this.props.templates[act.template]) {
+          card = this.props.templates[act.template](act.data);
+        }
+      }
+
+      if (!card) {
+        card = React.createElement(_feedCard2.default, { data: act.data });
       }
 
       return React.createElement(
@@ -289,3 +305,5 @@ var styles = ReactNative.StyleSheet.create({
 });
 
 exports.default = Feed;
+exports.FeedCard = _feedCard2.default;
+exports.FeedCardWrapper = _feedCardwrapper.FeedCardWrapper;
