@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.GET_CARD_WIDTH = exports.CARD_MARGIN = exports.CARD_PREVIEW_WIDTH = exports.FeedCardWrapper = undefined;
+exports.GET_CARD_WIDTH = exports.CARD_MARGIN = exports.CARD_PREVIEW_WIDTH = exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -127,7 +127,7 @@ var styles = ReactNative.StyleSheet.create({
   }
 });
 
-exports.FeedCardWrapper = FeedCardWrapper;
+exports.default = FeedCardWrapper;
 exports.CARD_PREVIEW_WIDTH = CARD_PREVIEW_WIDTH;
 exports.CARD_MARGIN = CARD_MARGIN;
 exports.GET_CARD_WIDTH = GET_CARD_WIDTH;
