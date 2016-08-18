@@ -83,7 +83,7 @@ var Feed = function (_React$Component) {
       if (this.props.data) {
         this.setState({
           feed: this.props.data,
-          dataSource: this.getDataSource(nextProps.data)
+          dataSource: this.getDataSource(this.props.data)
         });
       }
       /*
@@ -225,7 +225,7 @@ var Feed = function (_React$Component) {
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps.data !== this.state.feed) {
         this.setState({
-          feed: this.props.data,
+          feed: nextProps,
           dataSource: this.getDataSource(nextProps.data)
         });
       }

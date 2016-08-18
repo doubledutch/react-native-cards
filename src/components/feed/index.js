@@ -39,7 +39,7 @@ class Feed extends React.Component {
       if (this.props.data) {
         this.setState({
           feed: this.props.data,
-          dataSource : this.getDataSource(nextProps.data)
+          dataSource : this.getDataSource(this.props.data)
         })
       }
       /*
@@ -173,7 +173,7 @@ class Feed extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.data !== this.state.feed) {
           this.setState({
-            feed: this.props.data,
+            feed: nextProps,
             dataSource : this.getDataSource(nextProps.data)
           })
         }
