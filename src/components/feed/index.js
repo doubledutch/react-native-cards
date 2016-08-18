@@ -36,6 +36,12 @@ class Feed extends React.Component {
     }
 
     componentDidMount() {
+      if (this.props.data) {
+        this.setState({
+          feed: this.props.data,
+          dataSource : this.getDataSource(nextProps.data)
+        })
+      }
       /*
       if (!this.isFetching) {
         this.isFetching = true

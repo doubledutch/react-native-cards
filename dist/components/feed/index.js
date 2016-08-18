@@ -80,6 +80,12 @@ var Feed = function (_React$Component) {
   _createClass(Feed, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      if (this.props.data) {
+        this.setState({
+          feed: this.props.data,
+          dataSource: this.getDataSource(nextProps.data)
+        });
+      }
       /*
       if (!this.isFetching) {
         this.isFetching = true
