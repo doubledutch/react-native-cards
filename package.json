@@ -29,6 +29,7 @@
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-native": "^0.28.0",
+    "react-native-fs": "^1.5.1",
     "react-native-web": "0.0.41",
     "webpack": "^1.13.1"
   },
@@ -42,8 +43,8 @@
     ]
   },
   "browser": {
-    "dd-nativemodules" : "src/components/nativemodules",
-    "dd-ddview" : "src/components/ddview",
-    "dd-dimensions" : "src/components/dimensions"
+    "dd-nativemodules": "src/components/nativemodules",
+    "dd-ddview": "src/components/ddview",
+    "dd-dimensions": "src/components/dimensions"
   }
 }

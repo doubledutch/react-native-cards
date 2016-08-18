@@ -88,4 +88,4 @@ var styles = ReactNative.StyleSheet.create({
     },
 });
 
-export { FeedCardWrapper, CARD_PREVIEW_WIDTH, CARD_MARGIN, GET_CARD_WIDTH };
+export { FeedCardWrapper as default, CARD_PREVIEW_WIDTH, CARD_MARGIN, GET_CARD_WIDTH };

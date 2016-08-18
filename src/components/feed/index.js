@@ -9,10 +9,10 @@ import PeopleRecommendations1 from './feed.recommended-people-1.js';
 import ChannelRecommendations1 from './feed.recommended-channels-1.js';
 import CheckinCard from './feed.checkin.js';
 import FeedCard from './feed.card.js';
-import { FeedCardWrapper } from './feed.cardwrapper.js';
+import FeedCardWrapper, { CARD_PREVIEW_WIDTH, CARD_MARGIN, GET_CARD_WIDTH } from './feed.cardwrapper.js';
 import Dimensions from 'dd-dimensions'
 
-var {
+const {
     Text,
     View,
     TouchableHighlight,
@@ -36,6 +36,7 @@ class Feed extends React.Component {
     }
 
     componentDidMount() {
+      /*
       if (!this.isFetching) {
         this.isFetching = true
 
@@ -57,7 +58,7 @@ class Feed extends React.Component {
         }).catch((err) => {
           this.isFetching = false
         })
-      }
+      }*/
     }
 
     fetchFeed() {
@@ -163,6 +164,16 @@ class Feed extends React.Component {
         );
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.data !== this.state.feed) {
+          this.setState({
+            feed: this.props.data,
+            dataSource : this.getDataSource(nextProps.data)
+          })
+        }
+    }
+
+
     render() {
         return (
           <ListView
@@ -249,4 +260,4 @@ var styles = ReactNative.StyleSheet.create({
     }
 });
 
-export { Feed as default, FeedCard, FeedCardWrapper };
+export { Feed as default, FeedCard, FeedCardWrapper, CARD_PREVIEW_WIDTH, CARD_MARGIN, GET_CARD_WIDTH };

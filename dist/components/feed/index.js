@@ -80,35 +80,31 @@ var Feed = function (_React$Component) {
   _createClass(Feed, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var _this2 = this;
-
+      /*
       if (!this.isFetching) {
-        this.isFetching = true;
-
-        if (this.props.data) {
+        this.isFetching = true
+         if (this.props.data) {
           this.setState({
             feed: this.props.data,
-            dataSource: this.getDataSource(this.props.data)
-          });
-          return;
+            dataSource : this.getDataSource(this.props.data)
+          })
+          return
         }
-
-        this.fetchFeed().then(function (feed) {
-          _this2.isFetching = false;
-
-          _this2.setState({
+         this.fetchFeed().then((feed) => {
+          this.isFetching = false
+           this.setState({
             feed: feed,
-            dataSource: _this2.getDataSource(feed)
-          });
-        }).catch(function (err) {
-          _this2.isFetching = false;
-        });
-      }
+            dataSource : this.getDataSource(feed)
+          })
+        }).catch((err) => {
+          this.isFetching = false
+        })
+      }*/
     }
   }, {
     key: 'fetchFeed',
     value: function fetchFeed() {
-      var _this3 = this;
+      var _this2 = this;
 
       return new Promise(function (resolve, reject) {
 
@@ -120,7 +116,7 @@ var Feed = function (_React$Component) {
           fetch(url, { method: 'GET', headers: { Authorization: 'Bearer ' + token } }).then(function (response) {
             return response.json();
           }).catch(function (error) {
-            _this3.isFetching = false;
+            _this2.isFetching = false;
             console.error(error);
             alert('error');
           }).then(function (responseData) {
@@ -217,6 +213,16 @@ var Feed = function (_React$Component) {
         { style: styles.container },
         card
       );
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.data !== this.state.feed) {
+        this.setState({
+          feed: this.props.data,
+          dataSource: this.getDataSource(nextProps.data)
+        });
+      }
     }
   }, {
     key: 'render',
