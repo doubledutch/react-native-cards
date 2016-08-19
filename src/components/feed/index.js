@@ -155,12 +155,12 @@ class Feed extends React.Component {
 
       if (!card && this.props.templates) {
         if (this.props.templates[act.template]) {
-          card = this.props.templates[act.template](act.data)
+          card = this.props.templates[act.template](act.id, act.data)
         }
       }
 
       if (!card) {
-        card = <FeedCard data={act.data} />
+        card = <FeedCard data={act.data} onDismiss={this.props.onDismissCard} onUpdate={this.props.onUpdateCard} onLog={this.props.onLog} />
       }
 
         return (
@@ -188,6 +188,7 @@ class Feed extends React.Component {
               initialListSize={10}
               styles={styles.list}
               contentContainerStyle={styles.content}
+              enableEmptySections={true}
           />
         );
     }

@@ -27,7 +27,7 @@ class FeedCardWrapper extends React.Component {
           <View style={styles.wrapper}>
             <View style={styles.header}>
               <Text style={styles.headerText}>{this.props.title}</Text>
-              <TouchableHighlight style={styles.dismissButton}>
+              <TouchableHighlight style={styles.dismissButton} onPress={this.props.onDismiss}>
                 <Text style={styles.dismissButtonText}>×</Text>
               </TouchableHighlight>
             </View>
