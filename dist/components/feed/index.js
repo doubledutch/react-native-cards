@@ -206,12 +206,12 @@ var Feed = function (_React$Component) {
 
       if (!card && this.props.templates) {
         if (this.props.templates[act.template]) {
-          card = this.props.templates[act.template](act.data);
+          card = this.props.templates[act.template](act.id, act.data);
         }
       }
 
       if (!card) {
-        card = React.createElement(_feedCard2.default, { data: act.data });
+        card = React.createElement(_feedCard2.default, { data: act.data, onDismiss: this.props.onDismissCard, onUpdate: this.props.onUpdateCard, onLog: this.props.onLog });
       }
 
       return React.createElement(
@@ -238,7 +238,8 @@ var Feed = function (_React$Component) {
         renderRow: this._renderRow,
         initialListSize: 10,
         styles: styles.list,
-        contentContainerStyle: styles.content
+        contentContainerStyle: styles.content,
+        enableEmptySections: true
       });
     }
   }]);

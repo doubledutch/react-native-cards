@@ -60,7 +60,7 @@ var FeedCardWrapper = function (_React$Component) {
           ),
           React.createElement(
             _reactNative.TouchableHighlight,
-            { style: styles.dismissButton },
+            { style: styles.dismissButton, onPress: this.props.onDismiss },
             React.createElement(
               _reactNative.Text,
               { style: styles.dismissButtonText },
