@@ -16,8 +16,7 @@
     "prepublish": "npm run build && npm run build:umd",
     "test": "karma start karma.config.js",
     "test:watch": "npm run test -- --no-single-run",
-    "start": "react-native start",
-    "preinstall": "rm-local-modules"
+    "start": "react-native start"
   },
   "dependencies": {
     "babel-core": "^6.13.2",
@@ -26,11 +25,11 @@
     "babel-preset-react": "^6.11.1",
     "fbjs": "^0.8.3",
     "lodash": "^4.15.0",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
-    "react-native": "^0.28.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-native": "^0.32.0",
     "react-native-fs": "^1.5.1",
-    "react-native-web": "0.0.44",
+    "react-native-web": "^0.0.44",
     "webpack": "^1.13.1"
   },
   "devDependencies": {
