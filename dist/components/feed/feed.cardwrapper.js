@@ -49,7 +49,7 @@ var FeedCardWrapper = function (_React$Component) {
 
       return React.createElement(
         _reactNative.View,
-        { style: styles.wrapper },
+        { style: [styles.wrapper, this.props.style] },
         React.createElement(
           _reactNative.View,
           { style: styles.header },
@@ -114,8 +114,7 @@ var styles = ReactNative.StyleSheet.create({
     borderTopColor: '#ccc'
   },
   separator: {
-    height: 19,
-    backgroundColor: '#fff'
+    height: 19
   },
   content: {
     marginTop: 0,

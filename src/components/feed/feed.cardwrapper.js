@@ -24,7 +24,7 @@ class FeedCardWrapper extends React.Component {
         var child = this.props.children
 
         return (
-          <View style={styles.wrapper}>
+          <View style={[ styles.wrapper, this.props.style ]}>
             <View style={styles.header}>
               <Text style={styles.headerText}>{this.props.title}</Text>
               <TouchableHighlight style={styles.dismissButton} onPress={this.props.onDismiss}>
@@ -75,8 +75,7 @@ var styles = ReactNative.StyleSheet.create({
       borderTopColor: '#ccc',
     },
     separator: {
-        height: 19,
-        backgroundColor: '#fff'
+        height: 19
     },
     content: {
       marginTop: 0,
