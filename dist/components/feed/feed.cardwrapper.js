@@ -68,8 +68,7 @@ var FeedCardWrapper = function (_React$Component) {
             )
           )
         ),
-        child,
-        React.createElement(_reactNative.View, { style: styles.separator })
+        child
       );
     }
   }]);

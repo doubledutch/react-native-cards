@@ -32,7 +32,6 @@ class FeedCardWrapper extends React.Component {
               </TouchableHighlight>
             </View>
             {child}
-            <View style={styles.separator}></View>
           </View>
         );
     }
